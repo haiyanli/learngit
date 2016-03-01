@@ -1,0 +1,87 @@
+Thank you for writing this brief git guidebook.
+
+I did the exersices step by step as the website you wrote.
+
+I recorded some notes on onenote, here are some of them:
+1\ansi，unicode,utf-8
+总结
+UTF-8最适合用来作为字符串网络传输的编码格式。UTF-16最适合当作本地字符串编码格式。如果定义好了网络传输协议，那么UTF-16也非常合适当作网络字符串传输的编码格式，特别是中文等远东地区字符集。比起UTF-8来说，节省流量。
+UTF-16 LE是windows上默认的Unicode编码方式.
+2\git remote/clone
+本地 -> 远程
+$ git remote add origin https://github.com/haiyanli/gitwork.git
+$ (gitwork是仓库名)
+$ git push -u origin master (第一次 -u)
+$ git push origin master (以后)
+
+push:推送
+
+远程 -> 本地
+$ git clone https://github.com/haiyanli/gitskills.git
+$ cd gitskills
+$ ls
+
+要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
+3\git:// 与 https://
+实测：在公司只能用https://
+
+Git支持多种协议，默认的git://使用ssh(原生git协议最快)，但也可以使用https等其他协议。
+使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
+4\git diff 分支1 分支2
+git diff aaa bbb
+
+规则：
+aaa-bbb
+
+red代表aaa有，bbb无
+green代表aaa无，bbb有
+master 比 dev 多了 git tracks changes.
+       比 dev 少了 qq
+                   add one line
+                   creating a new branch is quick.
+
+5\解决冲突git merge branchname
+1\
+git merge feature1
+
+2\
+当git无法自动合并分支时，要先手动解决冲突。再add,commit提交，合并完成。
+
+Git is a distributed version control system.Git is free software distributed under the GPL.Git has a mutable index called stage.Git tracks changes of files.<<<<<<< HEADCreating a new branch is quick & simple.=======Creating a new branch is quick AND simple.>>>>>>> feature1
+
+git用<<<<<<<,==========,>>>>>>>>标记不同分支内容。修改，保存(：wq)，提交(add commit)。
+
+
+3\
+查看分支合并：
+
+git log --graph
+git log --graph --pretty=oneline --abbrev-commit
+
+4\
+删除feature1
+git branch -d feature1
+
+6\git push 推送分支
+$ git push origin master (master为指定的本地分支)
+$ git push origin dev1 (dev1 为指定的本地分支)
+
+7\github clone 开源项目
+
+找到项目主页，点Fork，就在自己账户下clone了项目
+
+如：
+项目主页https://github.com/twbs/bootstrap
+点Fork
+就在自己账户下clone了一个bootstrap仓库
+
+$ git clone https://github.com/haiyanli/bootstrap.git
+
+• 先Fork到自己的仓库，然后pull到本地。远程（往返）本地。
+
+
+
+
+
+
+
